@@ -126,16 +126,6 @@ Industrial IoT sensor dataset — **24,042 records** across four machine types.
 - **Model 1 — Failure Prediction:** binary classifier → `failure_within_24h`
 - **Model 2 — Failure Type Classification:** multi-class classifier → `failure_type` (invoked only when Model 1 predicts failure)
 
-### Sample Results (test set)
-
-| Metric | Model 1 (Failure Prediction) |
-|---|---|
-| Accuracy | 0.94 |
-| Precision (Failure) | 0.89 |
-| Recall (Failure) | 0.91 |
-| F1-score | 0.90 |
-| ROC-AUC | 0.96 |
-
 > ℹ️ Metrics are illustrative of the evaluation methodology — replace with your actual training results.
 
 ---
@@ -149,32 +139,6 @@ Industrial IoT sensor dataset — **24,042 records** across four machine types.
 | `/health` | `GET` | Service health check |
 | `/model-info` | `GET` | Model version & feature schema |
 
-**Example request:**
-
-```json
-POST /predict/failure
-{
-  "machine_type": "Pump",
-  "vibration_rms": 4.82,
-  "temperature_motor": 78.3,
-  "current_phase_avg": 12.4,
-  "pressure_level": 6.1,
-  "rpm": 1450,
-  "operating_mode": "high_load",
-  "hours_since_maintenance": 610,
-  "ambient_temp": 31.2
-}
-```
-
-**Example response:**
-
-```json
-{
-  "failure_within_24h": 1,
-  "failure_probability": 0.87,
-  "model_version": "rf_v1.2"
-}
-```
 
 ---
 
@@ -276,16 +240,7 @@ Open `dashboard/powerbi_report.pbix` and point it to your results data source.
 
 ---
 
-## 🧩 Challenges & Solutions
 
-| Challenge | Solution |
-|---|---|
-| Class imbalance in failure events | Class-weighted Random Forest + stratified split |
-| Multi-stage workflow latency | Early branching in n8n to skip unnecessary calls |
-| Unstable local API URL | Reserved ngrok domain for the dev phase |
-| Training-serving feature skew | Shared preprocessing module for training & inference |
-
----
 
 ## 🔮 Future Improvements
 
@@ -297,17 +252,5 @@ Open `dashboard/powerbi_report.pbix` and point it to your results data source.
 - [ ] Add authentication & role-based access control
 - [ ] Build a technician feedback loop to improve model accuracy
 
----
 
-## 📄 License
 
-This project is licensed under the MIT License — see the `LICENSE` file for details.
-
-## 👤 Author
-
-**Your Name**
-📧 your.email@example.com · 🔗 [LinkedIn](https://linkedin.com) · 🔗 [Portfolio](https://yourportfolio.com)
-
----
-
-⭐ If you find this project useful, consider giving it a star on GitHub!
