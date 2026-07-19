@@ -11,7 +11,6 @@ The **Industrial Predictive Maintenance Platform** predicts industrial machine f
 
 Instead of reactive repairs or fixed maintenance schedules, this system continuously evaluates live sensor data, predicts whether a machine will fail **within the next 24 hours**, classifies the **expected failure type**, generates **AI-powered maintenance recommendations**, and pushes **real-time alerts** to maintenance teams — with results visualized in a **Power BI dashboard**.
 
-> 🎓 Built as a Data Engineering & Machine Learning project — suitable for graduation submission, technical portfolios, and interview walkthroughs.
 
 ---
 
